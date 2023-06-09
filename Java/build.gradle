@@ -1,0 +1,51 @@
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'eclipse-wtp'
+apply plugin: 'org.akhikhl.gretty'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'org.springframework', name: 'spring-webmvc', version: '4.3.7.RELEASE'
+    compile group: 'org.springframework.security', name: 'spring-security-config', version: '4.2.2.RELEASE'
+    compile group: 'org.springframework.security', name: 'spring-security-taglibs', version: '4.2.2.RELEASE'
+    compile group: 'org.springframework', name: 'spring-orm', version: '4.3.7.RELEASE'
+    compile group: 'javax.servlet', name:'jstl', version:'1.2'
+    compile group: 'taglibs', name: 'standard', version: '1.1.2'
+    compile group: 'commons-dbcp', name: 'commons-dbcp', version: '1.4'
+    compile group: 'org.hibernate', name: 'hibernate-core', version: '5.2.8.Final'
+    compile group: 'mysql', name: 'mysql-connector-java', version: '6.0.5'
+    compile group: 'log4j', name: 'log4j', version: '1.2.17'
+    
+    compile group: 'commons-io', name: 'commons-io', version: '2.5'
+    compile group: 'commons-lang', name: 'commons-lang', version: '2.6'
+    compile group: 'commons-validator', name: 'commons-validator', version: '1.6'
+    compile group: 'com.google.code.gson', name: 'gson', version: '2.8.0'
+    
+    providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.0.1'
+    providedCompile group: 'javax.servlet.jsp', name: 'javax.servlet.jsp-api', version: '2.3.1'
+}
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath "org.akhikhl.gretty:gretty:1.4.1"
+    }
+}
+
+eclipse {
+    wtp {
+        component {
+            contextPath = 'spring4'
+    }
+  }
+}
